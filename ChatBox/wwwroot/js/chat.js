@@ -42,6 +42,23 @@ document.getElementById("sendToUser").addEventListener("click", function (event)
     event.preventDefault();
 });
 
+document.getElementById("addToGroup").addEventListener("click", function (event) {
+    var user = document.getElementById("userInput").value;
+    var connectionId = document.getElementById("sendConnectionId").value;
+    connection.invoke("AddToGroup", user, message).catch(function (err){
+        return console.error(err.toString());
+    });
+    event.preventDefault();
+});
+
+document.getElementById("removeFromGroup").addEventListener("click", function (event) {
+    var user = document.getElementById("userInput").value;
+    var connectionId = document.getElementById("sendConnectionId").value;
+    connection.invoke("RemoveFromGroup", user, message).catch(function (err) {
+        return console.error(err.toString());
+    });
+    event.preventDefault();
+});
 //connection.start().then(function () {
 //    document.getElementById("sendButton").disabled = false;
 //}).catch(function (err) {
